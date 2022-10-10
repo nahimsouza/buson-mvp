@@ -1,0 +1,62 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="{% static 'bootstrap/css/quartz-bootstrap.min.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'bootstrap/css/pulse-bootstrap.min.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'bootstrap/css/united-bootstrap.min.css' %}"> -->
+    <!-- <link rel="stylesheet" href="{% static 'bootstrap/css/lux-bootstrap.min.css' %}"> -->
+
+    <link rel="stylesheet" href="{% static 'fa/css/all.min.css' %}">
+    
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+
+    <title>Buson - {% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/buson_app/">BusOn</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/buson_app/rotas">Rotas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/buson_app/cadastrar-colaborador">Colaborador</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/buson_app/configuracoes">Configurações</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container pt-4">
+            <div class="jumbotron">
+                {% block header %}
+                {% endblock %}
+                <hr class="my-4">
+            </div>
+        </div>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+</body>
+
+</html>

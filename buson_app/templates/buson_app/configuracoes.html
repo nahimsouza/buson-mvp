@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}Configurações{% endblock %}
+
+{% block header %}
+<h1 class="display-4">Configurações <i class="fas fa-cog"></i></h1>
+<p class="lead">Configure suas rotas, tempo de viagem e número de passageiros.</p>
+{% endblock %}
+
+{% block content %}
+<div class="row pb-4">
+    <div class=" col-sm-6 form-group">
+        <fieldset>
+            <label class="form-label" for="num-linhas">Número de linhas</label>
+            <input class="form-control" id="num-linhas" type="number" placeholder="Insira o número de linhas...">
+        </fieldset>
+    </div>
+
+    <div class=" col-sm-6 form-group">
+        <fieldset>
+            <label class="form-label" for="max-passageiros">Número máximo de passageiros</label>
+            <input class="form-control" id="max-passageiros" type="number" placeholder="Insira o número máximo de passageiros...">
+        </fieldset>
+    </div>
+</div>
+
+<div class="row">
+    <div class=" col-sm-6 form-group">
+        <fieldset>
+            <label class="form-label" for="max-pontos">Número máximo de pontos</label>
+            <input class="form-control" id="max-pontos" type="number" placeholder="Insira o número máximo de pontos...">
+        </fieldset>
+    </div>
+
+    <div class=" col-sm-6 form-group">
+        <fieldset>
+            <label class="form-label" for="tempo-max">Tempo máximo de viagem</label>
+            <div class="input-group mb-3">
+                <input type="number" class="form-control" aria-label="Insira o tempo máximo de viagem (em minutos)">
+                <span class="input-group-text">minutos</span>
+            </div>
+        </fieldset>
+    </div>
+</div>
+
+<button type="button" id="salvar-configuracoes" class="btn btn-primary">Salvar</button>
+{% endblock %}
