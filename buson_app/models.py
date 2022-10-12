@@ -1,38 +1,106 @@
 from django.db import models
 
-# Create your models here.
-class Route(models.Model):
-    Directions = models.TextChoices('Ida', 'Volta')
-    name = models.CharField(max_length=20)
-    direction = models.CharField(max_length=10, choices=Directions.choices)
+
+class Address(models.Model):
+
+    street = models.CharField(max_length=100, verbose_name='Rua')
+    number = models.PositiveIntegerField(verbose_name='Número')
+    neighborhood = models.CharField(max_length=100, verbose_name='Bairro')
+    city = models.CharField(max_length=50, verbose_name='Cidade')
+    state = models.CharField(max_length=50, verbose_name='Estado')
+    postal_code = models.CharField(max_length=10, verbose_name='CEP')
+
+    class Meta:
+        verbose_name = 'Address'
+        verbose_name_plural = 'Addresses'
+
+    def __str__(self):
+        return str(self.street) + ', ' + str(self.number) + ' - ' + \
+            str(self.neighborhood) + ', ' + \
+            str(self.city) + ' - ' + str(self.state)
 
 
 class BusStop(models.Model):
-    street = models.CharField(max_length=200)
-    number = models.IntegerField()
-    district = models.CharField(max_length=50)
-    city = models.CharField(max_length=50)
-    state = models.CharField(max_length=50)
 
-    route = models.ForeignKey(Route, on_delete=models.SET_NULL, null=True)
+    address = models.ForeignKey(
+        Address, on_delete=models.CASCADE, related_name='points')
+    latitude = models.FloatField(verbose_name='Latitude')
+    longitude = models.FloatField(verbose_name='Longitude')
+
+    def __str__(self):
+        return str(self.address)
+
+
+class Route(models.Model):
+
+    DIRECTIONS_CHOICES = (
+        ('I', 'Ida'),
+        ('V', 'Volta'),
+        ('N', 'Nenhuma das opções')
+    )
+
+    name = models.CharField(max_length=20, verbose_name='Nome da Rota')
+    num_passengers = models.PositiveIntegerField(
+        verbose_name='Número de passageiros')
+    direction = models.CharField(
+        max_length=1, choices=DIRECTIONS_CHOICES, blank=False, null=False)
+    stops = models.ManyToManyField(BusStop, related_name='routes')
+
+    def __str__(self):
+        return 'Rota ' + str(self.pk)
+
+
+class Bus(models.Model):
+
+    license_plate = models.CharField(max_length=10, verbose_name='Placa')
+    num_seats = models.PositiveIntegerField(verbose_name='Capacidade')
+    num_seats_occupied = models.PositiveIntegerField(verbose_name='Ocupação')
+    main_route = models.OneToOneField(
+        Route, on_delete=models.SET_NULL, null=True, blank=True, related_name='main_route')
+    return_route = models.OneToOneField(
+        Route, on_delete=models.SET_NULL, null=True, blank=True, related_name='return_route')
+
+    class Meta:
+        verbose_name = 'Bus'
+        verbose_name_plural = 'Buses'
+
+    def __str__(self):
+        return self.license_plate
 
 
 class Employee(models.Model):
-    name = models.CharField(max_length=200)
-    street = models.CharField(max_length=200)
-    number = models.IntegerField()
-    district = models.CharField(max_length=200)
-    city = models.CharField(max_length=200)
-    state = models.CharField(max_length=200)
 
-    bus_stop = models.ForeignKey(BusStop, on_delete=models.SET_NULL, null=True)    
+    name = models.CharField(max_length=200, verbose_name='Nome')
+    cpf = models.CharField(
+        max_length=14, default='XXX.XXX.XXX-XX', verbose_name='CPF')
+    telephone = models.CharField(
+        max_length=16, default='(XX) XXXX-XXXX', verbose_name='Telefone')
+    birthday = models.DateField(
+        default='AAAA-MM-DD', verbose_name='Data de Nascimento')
+    address = models.ForeignKey(
+        Address, on_delete=models.CASCADE, verbose_name='Endereço')
+    bus = models.ForeignKey(Bus, on_delete=models.PROTECT,
+                            null=True, blank=True, related_name='passengers')
+
+    def __str__(self):
+        return self.name
 
 
 class Settings(models.Model):
-    number_of_routes = models.IntegerField()
-    min_number_of_passengers = models.IntegerField()
-    max_number_of_passengers = models.IntegerField()
-    max_number_of_bus_stops = models.IntegerField()
-    max_traveling_time = models.IntegerField()
-    max_distance_to_house = models.IntegerField()
 
+    number_of_routes = models.PositiveIntegerField(
+        verbose_name='Número de Linhas')
+    min_number_of_passengers = models.PositiveIntegerField(
+        verbose_name='Mínimo de Passageiros')
+    max_number_of_passengers = models.PositiveIntegerField(
+        verbose_name='Máximo de Passageiros')
+    max_number_of_bus_stops = models.PositiveIntegerField(
+        verbose_name='Máximo de Paradas')
+    max_traveling_time = models.TimeField(
+        verbose_name='Tempo Máximo de Viagem')
+    max_distance_to_house = models.PositiveIntegerField(
+        verbose_name='Distância Maxima até a Casa')
+
+    class Meta:
+        verbose_name = 'Setting'
+        verbose_name_plural = 'Settings'
