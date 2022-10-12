@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+
+{% block title %}Novo Colaborador{% endblock %}
+
+{% block header %}
+<h1 class="display-4">Gerenciar Colaboradores <i class="fas fa-user"></i></h1>
+<p class="lead">Selecione abaixo uma das opções para adicionar ou remover colaboradores do sistema.</p>
+{% endblock %}
+
+{% block content %}
+
+<!-- Button trigger modal -->
+<div class="pb-4">
+    <button id="register-employee" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">
+        Adicionar colaborador
+    </button>
+
+    <button id="remove-employee" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#removeModal">
+        Remover colaborador
+    </button>
+</div>
+
+  
+<!-- Modal Register -->
+<div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="registerModalLabel">Adicionar colaborador</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="name" class="col-form-label">Nome</label>
+                      <input type="text" class="form-control" id="name">
+                    </div>
+                    <div class="mb-3">
+                      <label for="street" class="col-form-label">Rua</label>
+                      <input type="text" class="form-control" id="street">
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-3">
+                            <label for="number" class="col-form-label">Número</label>
+                            <input type="text" class="form-control" id="number">
+                        </div>
+                        <div class="mb-3 col-md-9">
+                            <label for="district" class="col-form-label">Bairro</label>
+                            <input type="text" class="form-control" id="district">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-md-4">
+                            <label for="postal-code" class="col-form-label">CEP</label>
+                            <input type="text" class="form-control" id="postal-code">
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="city" class="col-form-label">Cidade</label>
+                            <input type="text" class="form-control" id="city">
+                        </div>
+                        <div class="mb-3 col-md-4">
+                            <label for="state" class="col-form-label">Estado</label>
+                            <input type="text" class="form-control" id="state">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Remove -->
+<div class="modal fade" id="removeModal" tabindex="-1" aria-labelledby="removeModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="removeModalLabel">Remover colaborador</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Deseja remover os colaboradores selecionados?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Não</button>
+          <button type="button" class="btn btn-primary">Sim</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+<div class="row">
+    <h1>Colaboradores</h1>
+</div>
+
+<table class="table table-hover align-middle">
+    <thead>
+        <tr>
+            <th scope="col"></th>
+            <th scope="col">Nome</th>
+            <th scope="col">Endereço</th>
+            <th scope="col">Linha</th>
+            <th scope="col">Ponto</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>
+                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+            </td>
+            <td>José Batista dos Santos</td>
+            <td>Av. General Carneiro, 1560</td>
+            <td>2</td>
+            <td>1</td>
+        </tr>
+        <tr>
+            <td>
+                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+            </td>
+            <td>Renata Figueiredo</td>
+            <td>Av. Américo Figueiredo, 238</td>
+            <td>3</td>
+            <td>2</td>
+        </tr>
+        <tr>
+            <td>
+                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
+            </td>
+            <td>Leandro Silva da Cunha</td>
+            <td>Av. Armando Panunzio, 5</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

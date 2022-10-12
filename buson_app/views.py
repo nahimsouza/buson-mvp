@@ -12,5 +12,5 @@ def configuracoes(request):
 def rotas(request):
     return render(request, 'buson_app/rotas.html')
 
-def cadastrarColaborador(request):
-    return render(request, 'buson_app/cadastro-colaborador.html')
+def gerenciarColaborador(request):
+    return render(request, 'buson_app/colaboradores.html')
