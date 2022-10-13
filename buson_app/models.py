@@ -5,7 +5,7 @@ class Address(models.Model):
 
     street = models.CharField(max_length=100, verbose_name='Rua')
     number = models.PositiveIntegerField(verbose_name='Número')
-    neighborhood = models.CharField(max_length=100, verbose_name='Bairro')
+    district = models.CharField(max_length=100, verbose_name='Bairro')
     city = models.CharField(max_length=50, verbose_name='Cidade')
     state = models.CharField(max_length=50, verbose_name='Estado')
     postal_code = models.CharField(max_length=10, verbose_name='CEP')
@@ -16,7 +16,7 @@ class Address(models.Model):
 
     def __str__(self):
         return str(self.street) + ', ' + str(self.number) + ' - ' + \
-            str(self.neighborhood) + ', ' + \
+            str(self.district) + ', ' + \
             str(self.city) + ' - ' + str(self.state)
 
 
