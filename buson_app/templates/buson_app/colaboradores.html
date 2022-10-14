@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load app_tags %}
+
 {% block title %}Novo Colaborador{% endblock %}
 
 {% block header %}
@@ -123,31 +125,17 @@
 
     <tbody>
         <tr>
+            {% for employee in list %}
             <td>
                 <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
             </td>
-            <td>José Batista dos Santos</td>
-            <td>Av. General Carneiro, 1560</td>
-            <td>2</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>
-                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-            </td>
-            <td>Renata Figueiredo</td>
-            <td>Av. Américo Figueiredo, 238</td>
-            <td>3</td>
-            <td>2</td>
-        </tr>
-        <tr>
-            <td>
-                <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
-            </td>
-            <td>Leandro Silva da Cunha</td>
-            <td>Av. Armando Panunzio, 5</td>
-            <td>2</td>
-            <td>3</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.address }}</td>
+            {% get_route employee as route%}
+            <td>{{ route }}</td>
+            {% get_stop employee as stop%}
+            <td>{{ stop }}</td>
+            {% endfor %}
         </tr>
     </tbody>
 </table>

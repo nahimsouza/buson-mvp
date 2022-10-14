@@ -16,6 +16,9 @@ def rotas(request):
     return render(request, 'buson_app/rotas.html')
 
 def gerenciarColaborador(request):
+
+    employee_list = Employee.objects.all()
+
     if request.method == 'POST':
         form = EmployeeForm(request.POST)
 
@@ -40,7 +43,7 @@ def gerenciarColaborador(request):
 
             except:
                 form = EmployeeForm()
-                return render(request, 'buson_app/colaboradores.html', {'form': form})
+                return render(request, 'buson_app/colaboradores.html', {'form': form, 'list': employee_list})
 
     form = EmployeeForm()
-    return render(request, 'buson_app/colaboradores.html', {'form': form})
+    return render(request, 'buson_app/colaboradores.html', {'form': form, 'list': employee_list})

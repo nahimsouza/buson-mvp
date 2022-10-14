@@ -47,7 +47,7 @@ class Route(models.Model):
     stops = models.ManyToManyField(BusStop, related_name='routes')
 
     def __str__(self):
-        return 'Rota ' + str(self.pk)
+        return self.name
 
 
 class Bus(models.Model):
@@ -81,6 +81,8 @@ class Employee(models.Model):
         Address, on_delete=models.CASCADE, verbose_name='Endereço')
     bus = models.ForeignKey(Bus, on_delete=models.PROTECT,
                             null=True, blank=True, related_name='passengers')
+    bus_stop = models.ForeignKey(BusStop, on_delete=models.PROTECT,
+                            null=True, blank=True, related_name='employees')
 
     def __str__(self):
         return self.name
