@@ -124,8 +124,8 @@
     </thead>
 
     <tbody>
+        {% for employee in list %}
         <tr>
-            {% for employee in list %}
             <td>
                 <input class="form-check-input" type="checkbox" id="checkboxNoLabel" value="" aria-label="...">
             </td>
@@ -135,8 +135,8 @@
             <td>{{ route }}</td>
             {% get_stop employee as stop%}
             <td>{{ stop }}</td>
-            {% endfor %}
         </tr>
+        {% endfor %}
     </tbody>
 </table>
 {% endblock %}
