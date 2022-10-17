@@ -76,13 +76,13 @@ class Employee(models.Model):
     telephone = models.CharField(
         max_length=16, null=True, blank=True, default='(XX) XXXX-XXXX', verbose_name='Telefone')
     birthday = models.DateField(
-        default='AAAA-MM-DD', null=True, blank=True, verbose_name='Data de Nascimento')
+        null=True, blank=True, verbose_name='Data de Nascimento')
     address = models.ForeignKey(
         Address, on_delete=models.CASCADE, verbose_name='Endereço')
     bus = models.ForeignKey(Bus, on_delete=models.PROTECT,
                             null=True, blank=True, related_name='passengers')
     bus_stop = models.ForeignKey(BusStop, on_delete=models.PROTECT,
-                            null=True, blank=True, related_name='employees')
+                                 null=True, blank=True, related_name='employees')
 
     def __str__(self):
         return self.name
