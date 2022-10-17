@@ -10,6 +10,3 @@ class EmployeeForm(forms.Form):
     city = forms.CharField(max_length=50)
     state = forms.CharField(max_length=50)
     postal_code = forms.CharField(max_length=10)
-    cpf = forms.CharField(max_length=14)
-    telephone = forms.CharField(max_length=16)
-    birthday = forms.DateField()

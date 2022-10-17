@@ -72,11 +72,11 @@ class Employee(models.Model):
 
     name = models.CharField(max_length=200, verbose_name='Nome')
     cpf = models.CharField(
-        max_length=14, default='XXX.XXX.XXX-XX', verbose_name='CPF')
+        max_length=14, null=True, blank=True, default='XXX.XXX.XXX-XX', verbose_name='CPF')
     telephone = models.CharField(
-        max_length=16, default='(XX) XXXX-XXXX', verbose_name='Telefone')
+        max_length=16, null=True, blank=True, default='(XX) XXXX-XXXX', verbose_name='Telefone')
     birthday = models.DateField(
-        default='AAAA-MM-DD', verbose_name='Data de Nascimento')
+        default='AAAA-MM-DD', null=True, blank=True, verbose_name='Data de Nascimento')
     address = models.ForeignKey(
         Address, on_delete=models.CASCADE, verbose_name='Endereço')
     bus = models.ForeignKey(Bus, on_delete=models.PROTECT,

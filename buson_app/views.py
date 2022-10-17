@@ -35,9 +35,6 @@ def gerenciarColaborador(request):
 
                 employee = Employee()
                 employee.name = form['name'].value()
-                employee.cpf = form['cpf'].value()
-                employee.telephone = form['telephone'].value()
-                employee.birthday = form['birthday'].value()
                 employee.address = address
                 employee.save()
 
