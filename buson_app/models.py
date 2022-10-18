@@ -98,7 +98,7 @@ class Settings(models.Model):
         verbose_name='Máximo de Passageiros')
     max_number_of_bus_stops = models.PositiveIntegerField(
         verbose_name='Máximo de Paradas')
-    max_traveling_time = models.TimeField(
+    max_traveling_time = models.PositiveIntegerField(
         verbose_name='Tempo Máximo de Viagem')
     max_distance_to_house = models.PositiveIntegerField(
         verbose_name='Distância Maxima até a Casa')

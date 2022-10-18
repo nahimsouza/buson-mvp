@@ -8,40 +8,63 @@
 {% endblock %}
 
 {% block content %}
-<div class="row pb-4">
-    <div class=" col-sm-6 form-group">
-        <fieldset>
-            <label class="form-label" for="num-linhas">Número de linhas</label>
-            <input class="form-control" id="num-linhas" type="number" placeholder="Insira o número de linhas...">
-        </fieldset>
+<form action="" method="post">
+    {% csrf_token %}
+    <div class="row pb-4">
+        <div class=" col-sm-6 form-group">
+            <fieldset>
+                <label class="form-label" for="number_of_routes">Número de linhas</label>
+                <input class="form-control" id="id_number_of_routes" name="number_of_routes" value="{{ settings.number_of_routes }}" type="number" placeholder="Insira o número de linhas...">
+            </fieldset>
+        </div>
+    
+        <div class=" col-sm-6 form-group">
+            <fieldset>
+                <label class="form-label" for="max_distance_to_house">Distância máxima até o ponto</label>
+                <div class="input-group">
+                    <input class="form-control" id="id_max_distance_to_house" name="max_distance_to_house" type="number" value="{{ settings.max_distance_to_house }}" placeholder="Insira a distância máxima até o ponto...">
+                    <span class="input-group-text">metros</span>
+                </div>
+            </fieldset>
+        </div>
     </div>
-
-    <div class=" col-sm-6 form-group">
-        <fieldset>
-            <label class="form-label" for="max-passageiros">Número máximo de passageiros</label>
-            <input class="form-control" id="max-passageiros" type="number" placeholder="Insira o número máximo de passageiros...">
-        </fieldset>
+ 
+    <div class="row pb-4">
+        <div class=" col-sm-6 form-group">
+            <fieldset>
+                <label class="form-label" for="min_number_of_passengers">Número mínimo de passageiros</label>
+                <input class="form-control" id="id_min_number_of_passengers" name="min_number_of_passengers" value="{{ settings.min_number_of_passengers }}" type="number" placeholder="Insira o número mínimo de passageiros...">
+            </fieldset>
+        </div>
+    
+        <div class=" col-sm-6 form-group">
+            <fieldset>
+                <label class="form-label" for="max_number_of_passengers">Número máximo de passageiros</label>
+                <input class="form-control" id="id_max_number_of_passengers" name="max_number_of_passengers" value="{{ settings.max_number_of_passengers }}" type="number" placeholder="Insira o número máximo de passageiros...">
+            </fieldset>
+        </div>
     </div>
-</div>
-
-<div class="row">
-    <div class=" col-sm-6 form-group">
-        <fieldset>
-            <label class="form-label" for="max-pontos">Número máximo de pontos</label>
-            <input class="form-control" id="max-pontos" type="number" placeholder="Insira o número máximo de pontos...">
-        </fieldset>
+ 
+    <div class="row">
+        <div class=" col-sm-6 form-group">
+            <fieldset>
+                <label class="form-label" for="max_number_of_bus_stops">Número máximo de pontos</label>
+                <input class="form-control" id="id_max_number_of_bus_stops" name="max_number_of_bus_stops" value="{{ settings.max_number_of_bus_stops }}" type="number" placeholder="Insira o número máximo de pontos...">
+            </fieldset>
+        </div>
+    
+        <div class=" col-sm-6 form-group">
+            <fieldset>
+                <label class="form-label" for="max_traveling_time">Tempo máximo de viagem</label>
+                <div class="input-group mb-3">
+                    <input type="number" id="id_max_traveling_time" name="max_traveling_time" value="{{ settings.max_traveling_time }}" class="form-control" placeholder="Insira o tempo máximo de viagem (em minutos)">
+                    <span class="input-group-text">minutos</span>
+                </div>
+            </fieldset>
+        </div>
     </div>
+    
+    <button type="submit" value="Submit" id="save_config" class="btn btn-primary">Salvar</button>
+</form>
 
-    <div class=" col-sm-6 form-group">
-        <fieldset>
-            <label class="form-label" for="tempo-max">Tempo máximo de viagem</label>
-            <div class="input-group mb-3">
-                <input type="number" class="form-control" aria-label="Insira o tempo máximo de viagem (em minutos)">
-                <span class="input-group-text">minutos</span>
-            </div>
-        </fieldset>
-    </div>
-</div>
-
-<button type="button" id="salvar-configuracoes" class="btn btn-primary">Salvar</button>
 {% endblock %}
