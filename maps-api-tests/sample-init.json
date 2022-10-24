@@ -1,0 +1,223 @@
+{
+    "vehicles": [
+        {
+            "vehicle_id": "bus 1",
+            "type_id": "bus-transport",
+            "end_address": {
+                "location_id": "flextronics",
+                "lon": -47.3678,
+                "lat": -23.428313
+            }
+        },
+        {
+            "vehicle_id": "bus 2",
+            "type_id": "bus-transport",
+            "end_address": {
+                "location_id": "flextronics",
+                "lon": -47.3678,
+                "lat": -23.428313
+            }
+        },
+        {
+            "vehicle_id": "bus 3",
+            "type_id": "bus-transport",
+            "end_address": {
+                "location_id": "flextronics",
+                "lon": -47.3678,
+                "lat": -23.428313
+            }
+        }
+    ],
+    "vehicle_types": [
+        {
+            "type_id": "bus-transport",
+            "profile": "truck",
+            "capacity": [
+                5
+            ]
+        }
+    ],
+    "services": [
+        {
+            "id": "service 1",
+            "name": "point 1",
+            "address": {
+                "location_id": "location 1",
+                "lon": -47.462948,
+                "lat": -23.534395
+            }
+        },
+        {
+            "id": "service 2",
+            "name": "point 2",
+            "address": {
+                "location_id": "location 2",
+                "lon": -47.464843235154966,
+                "lat": -23.494716
+            }
+        },
+        {
+            "id": "service 3",
+            "name": "point 3",
+            "address": {
+                "location_id": "location 3",
+                "lon": -47.4737205,
+                "lat": -23.4993616
+            }
+        },
+        {
+            "id": "service 4",
+            "name": "point 4",
+            "address": {
+                "location_id": "location 4",
+                "lon": -47.4592302,
+                "lat": -23.5063036
+            }
+        },
+        {
+            "id": "service 5",
+            "name": "point 5",
+            "address": {
+                "location_id": "location 5",
+                "lon": -47.43509,
+                "lat": -23.4770451
+            }
+        },
+        {
+            "id": "service 6",
+            "name": "point 6",
+            "address": {
+                "location_id": "location 6",
+                "lon": -47.5079568,
+                "lat": -23.4995769
+            }
+        },
+        {
+            "id": "service 7",
+            "name": "point 7",
+            "address": {
+                "location_id": "location 7",
+                "lon": -47.511613,
+                "lat": -23.4996704
+            }
+        },
+        {
+            "id": "service 8",
+            "name": "point 8",
+            "address": {
+                "location_id": "location 8",
+                "lon": -47.4556756,
+                "lat": -23.4419185
+            }
+        },
+        {
+            "id": "service 9",
+            "name": "point 9",
+            "address": {
+                "location_id": "location 9",
+                "lon": -47.4599515,
+                "lat": -23.4465519
+            }
+        },
+        {
+            "id": "service 10",
+            "name": "point 10",
+            "address": {
+                "location_id": "location 10",
+                "lon": -47.5080073,
+                "lat": -23.4914162
+            }
+        },
+        {
+            "id": "service 11",
+            "name": "point 11",
+            "address": {
+                "location_id": "location 11",
+                "lon": -47.372856,
+                "lat": -23.5014919
+            }
+        },
+        {
+            "id": "service 12",
+            "name": "point 12",
+            "address": {
+                "location_id": "location 12",
+                "lon": -47.498025,
+                "lat": -23.4460623
+            }
+        },
+        {
+            "id": "service 13",
+            "name": "point 13",
+            "address": {
+                "location_id": "location 13",
+                "lon": -47.4574782,
+                "lat": -23.4864668
+            }
+        },
+        {
+            "id": "service 14",
+            "name": "point 14",
+            "address": {
+                "location_id": "location 14",
+                "lon": -47.4491002,
+                "lat": -23.4915767
+            }
+        },
+        {
+            "id": "service 15",
+            "name": "point 15",
+            "address": {
+                "location_id": "location 15",
+                "lon": -47.450232,
+                "lat": -23.4783353
+            }
+        },
+        {
+            "id": "service 16",
+            "name": "point 16",
+            "address": {
+                "location_id": "location 16",
+                "lon": -47.4338944,
+                "lat": -23.5032815
+            }
+        },
+        {
+            "id": "service 17",
+            "name": "point 17",
+            "address": {
+                "location_id": "location 17",
+                "lon": -47.4326235,
+                "lat": -23.4989181
+            }
+        },
+        {
+            "id": "service 18",
+            "name": "point 18",
+            "address": {
+                "location_id": "location 18",
+                "lon": -47.48403724666956,
+                "lat": -23.520004550000003
+            }
+        },
+        {
+            "id": "service 19",
+            "name": "point 19",
+            "address": {
+                "location_id": "location 19",
+                "lon": -47.4756003,
+                "lat": -23.5091208
+            }
+        }
+    ],
+    "objectives": [
+        {
+            "type": "min-max",
+            "value": "completion_time"
+        },
+        {
+            "type": "min-max",
+            "value": "activities"
+        }
+    ]
+}
